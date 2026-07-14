@@ -1,5 +1,7 @@
-function App() {
-    return <h1>Portfolio</h1>;
-}
+import AppRoutes from "./routes/AppRoutes";
+
+const App = () => {
+    return <AppRoutes />;
+};
 
 export default App;
