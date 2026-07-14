@@ -2,68 +2,96 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(223, 225, 220, 0.75);
-    background: rgba(247, 247, 244, 0.9);
+    border-bottom: 1px solid rgba(216, 216, 212, 0.8);
+    background: rgba(245, 245, 243, 0.92);
     backdrop-filter: blur(16px);
 }
 
 .navbar__inner {
+    position: relative;
     display: flex;
     min-height: 78px;
     align-items: center;
     justify-content: space-between;
+    gap: 32px;
 }
 
 .navbar__brand {
+    flex-shrink: 0;
     color: var(--clr-text);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 800;
 }
 
 .navbar__menu {
     display: flex;
+    min-width: 0;
     align-items: center;
-    gap: 34px;
+    gap: 30px;
 }
 
 .navbar__links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .navbar__links a {
     color: var(--clr-text-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 600;
     transition: color var(--transition-fast);
 }
 
 .navbar__links a:hover {
-    color: var(--clr-primary);
+    color: var(--clr-text);
 }
 
 .navbar__toggle {
     display: none;
+    padding: 0;
     background: transparent;
     color: var(--clr-text);
-    font-size: 1.6rem;
+    font-size: 1.65rem;
+}
+
+@media (max-width: 900px) {
+    .navbar__links {
+        gap: 18px;
+    }
+
+    .navbar__menu {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 820px) {
+    .navbar__inner {
+        min-height: 72px;
+    }
+
     .navbar__toggle {
         display: inline-flex;
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
         align-items: center;
         justify-content: center;
+        border: 1px solid var(--clr-border);
+        border-radius: 12px;
     }
 
     .navbar__menu {
         position: absolute;
-        top: 78px;
-        right: 16px;
-        left: 16px;
+        top: calc(100% + 10px);
+        right: 0;
+        left: 0;
         display: none;
-        padding: 24px;
+        min-width: 0;
+        padding: 22px;
         border: 1px solid var(--clr-border);
         border-radius: var(--radius-md);
         background: var(--clr-surface);
@@ -79,6 +107,21 @@
     .navbar__links {
         align-items: stretch;
         flex-direction: column;
-        gap: 18px;
+        gap: 0;
+    }
+
+    .navbar__links li {
+        border-bottom: 1px solid var(--clr-border);
+    }
+
+    .navbar__links a {
+        display: block;
+        padding-block: 14px;
+        color: var(--clr-text);
+    }
+
+    .navbar__menu .button {
+        width: 100%;
+        margin-top: 8px;
     }
 }

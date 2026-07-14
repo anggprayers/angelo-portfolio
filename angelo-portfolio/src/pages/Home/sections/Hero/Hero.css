@@ -1,0 +1,400 @@
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-block: 72px 84px;
+}
+
+.hero::before {
+    position: absolute;
+    top: -220px;
+    left: -180px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.035);
+    content: "";
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+.hero::after {
+    display: none;
+}
+
+.hero__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+    gap: 90px;
+}
+
+.hero__content {
+    max-width: 700px;
+}
+
+.hero__availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 9px 15px;
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--clr-text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.hero__availability-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #57a773;
+    box-shadow: 0 0 0 5px rgba(87, 167, 115, 0.13);
+}
+
+.hero__eyebrow {
+    margin-bottom: 18px;
+    color: var(--clr-accent);
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 760px;
+    margin-bottom: 26px;
+    font-size: clamp(3.2rem, 6.2vw, 6rem);
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+}
+
+.hero__description {
+    max-width: 650px;
+    margin-bottom: 34px;
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 38px;
+}
+
+.hero__actions .button {
+    gap: 9px;
+}
+
+.hero__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.hero__socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--clr-text-muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.hero__socials a:hover {
+    color: var(--clr-text);
+    transform: translateY(-2px);
+}
+
+.hero__socials svg {
+    font-size: 1.1rem;
+}
+
+.hero__visual {
+    min-width: 0;
+}
+
+.hero__image-frame {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 40px;
+    background: #ddddda;
+    box-shadow: var(--shadow-md);
+}
+
+.hero__image-background {
+    background: linear-gradient(180deg, #f4f4f4, #ececec);
+}
+
+.hero__image-background::before {
+    display: none;
+}
+
+.hero__image-background::after {
+    display: none;
+}
+
+.hero__image {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    z-index: 2;
+    width: min(94%, 500px);
+    max-height: 500px;
+    object-fit: contain;
+    object-position: bottom;
+    transform: translateX(50%);
+}
+
+.hero__floating-card {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    min-width: 165px;
+    gap: 3px;
+    padding: 15px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(14px);
+}
+
+.hero__floating-card span {
+    color: var(--clr-text-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.hero__floating-card strong {
+    color: var(--clr-text);
+    font-size: 0.92rem;
+}
+
+.hero__floating-card--top {
+    top: 35px;
+    left: 30px;
+}
+
+.hero__floating-card--bottom {
+    right: 26px;
+    bottom: 32px;
+}
+
+.hero__experience {
+    display: grid;
+    margin-top: 18px;
+    padding: 22px 26px;
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    background: var(--clr-surface);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.hero__experience > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero__experience > div:not(:last-child) {
+    border-right: 1px solid var(--clr-border);
+}
+
+.hero__experience strong {
+    color: var(--clr-text);
+    font-size: 1.05rem;
+}
+
+.hero__experience span {
+    color: var(--clr-text-muted);
+    font-size: 0.77rem;
+}
+
+@media (max-width: 1050px) {
+    .hero__container {
+        grid-template-columns: 1fr 420px;
+        gap: 55px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 5.5vw, 4.8rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        padding-block: 60px 72px;
+    }
+
+    /*
+     * display: contents allows the children inside hero__content
+     * to participate directly in the hero__container layout.
+     * This lets us place the photo between the description
+     * and the buttons without duplicating any JSX.
+     */
+    .hero__container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hero__content {
+        display: contents;
+    }
+
+    .hero__availability {
+        order: 1;
+        align-self: flex-start;
+    }
+
+    .hero__eyebrow {
+        order: 2;
+        width: 100%;
+    }
+
+    .hero h1 {
+        order: 3;
+        width: 100%;
+        max-width: 760px;
+    }
+
+    .hero__description {
+        order: 4;
+        width: 100%;
+        max-width: 680px;
+    }
+
+    .hero__visual {
+        order: 5;
+        width: min(100%, 560px);
+        margin: 36px auto 0;
+    }
+
+    .hero__actions {
+        order: 6;
+        width: 100%;
+        margin: 32px 0 0;
+    }
+
+    .hero__socials {
+        order: 7;
+        width: 100%;
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-block: 42px 60px;
+    }
+
+    .hero__availability {
+        margin-bottom: 28px;
+    }
+
+    .hero__eyebrow {
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        margin-bottom: 24px;
+        font-size: clamp(2.65rem, 12vw, 4rem);
+        line-height: 1.02;
+    }
+
+    .hero__description {
+        margin-bottom: 0;
+        font-size: 1rem;
+        line-height: 1.85;
+    }
+
+    .hero__visual {
+        margin-top: 36px;
+    }
+
+    .hero__image-frame {
+        min-height: 460px;
+        border-radius: 28px;
+    }
+
+    .hero__image {
+        width: 100%;
+        max-height: 440px;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+
+    .hero__floating-card {
+        min-width: 140px;
+        padding: 12px 14px;
+    }
+
+    .hero__floating-card--top {
+        top: 20px;
+        left: 18px;
+    }
+
+    .hero__floating-card--bottom {
+        right: 18px;
+        bottom: 20px;
+    }
+
+    .hero__experience {
+        padding: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .hero__experience > div {
+        padding-bottom: 14px;
+    }
+
+    .hero__experience > div:last-child {
+        padding-bottom: 0;
+    }
+
+    .hero__experience > div:not(:last-child) {
+        border-right: 0;
+        border-bottom: 1px solid var(--clr-border);
+    }
+
+    .hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .hero__actions .button {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-inline: 18px;
+    }
+
+    .hero__socials {
+        gap: 22px;
+        margin-top: 28px;
+    }
+
+    .hero__socials span {
+        display: none;
+    }
+}
